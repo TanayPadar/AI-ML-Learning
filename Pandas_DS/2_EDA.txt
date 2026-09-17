@@ -1,0 +1,6 @@
+EDA - Exploratory Data Analysis
+
+Step 1 - Load and Understand Structure
+Step 2 - Clean data
+Step 3  - statistical summary (mean, mode, medium like)
+Step 4 - Graphical Visualization like matplot & sklearn

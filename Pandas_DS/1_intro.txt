@@ -1,0 +1,12 @@
+
+Pandas for Data Sciene
+Data Analysis & Manipulation Tool
+
+Define the Problem  - Aamazon Recommendation System
+Data Collection - Using SQL or Web Scrapper
+EDA  - Find Common Patterns 
+Cleaning & Pre-Processing  - Removing Unnecessary data
+Feature Engineering - Creating feature for missing data / requirement. Avg spent and reccomending that price products
+Modeling - Select and Create Model on Data
+Evaluation - Test, Accuracy , Precision
+Deployment - Give to real users for feedback and improvement
