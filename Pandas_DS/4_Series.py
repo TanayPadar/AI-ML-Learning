@@ -1,8 +1,6 @@
 #Series - One Dimensional Labeled Array 
 #index = position
 #labeled = named index . can give label using index[]
-
-
 import pandas as pd
 
 data = [1, 2, 3, 4, 5]

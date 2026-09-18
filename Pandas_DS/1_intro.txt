@@ -10,3 +10,14 @@ Feature Engineering - Creating feature for missing data / requirement. Avg spent
 Modeling - Select and Create Model on Data
 Evaluation - Test, Accuracy , Precision
 Deployment - Give to real users for feedback and improvement
+
+################### Never Change Original data , make copy of it everytime before changing ###########
+df["  "].copy()
+This copy is stored in memory for recalling and not in actual device or folder
+
+use "&" for AND
+use "~" for NOT
+use "|" for OR
+
+All the funtions just prints the results but to actually change file in directory 
+you need to over write the file using 'change_data.to_csv'
