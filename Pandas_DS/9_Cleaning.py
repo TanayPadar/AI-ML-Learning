@@ -44,3 +44,10 @@ print (var1.drop_duplicates(keep=False)) #drops the duplicates in the dataframe 
 print (var1.astype({'age': 'int64'})) #changes the datatype of the age column to int64
 #rule - neither cell should be null
 
+#Operations on Strings - 
+print()
+print (var1['name'].str.lower()) #converts the name column to lowercase
+print (var1['name'].str.len()) #counts the number of characters in the name column
+print (var1['name'].str.startswith('A')) #checks if the name column starts with 'A'
+print (var1['name'].str.endswith('A')) #checks if the name column ends with 'A'
+print (var1['name'].str.contains('A')) #checks if the name column contains 'A'
