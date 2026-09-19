@@ -21,3 +21,104 @@ use "|" for OR
 
 All the funtions just prints the results but to actually change file in directory 
 you need to over write the file using 'change_data.to_csv'
+
+
+################### Pandas Funtions I used in this folder ###########
+
+# Create Tables
+pd.DataFrame()     - 2D labeled table. can make from dictionary , list or numpy
+pd.Series()        - 1D labeled array. index = position , can also give named index[]
+
+# Load Files
+pd.read_csv()      - load csv file into dataframe
+pd.read_json()     - load json file into dataframe
+#Same using HTML , SQL , EXCEL too
+
+# See / EDA the data
+df.head()          - first 5 rows (or enter number you want)
+df.tail()          - last 5 rows
+df.sample()        - random rows
+df.describe()      - statistical summary (mean , count like)
+df.info()          - info about columns and datatypes
+df.columns         - print column names  /  can also rename ALL columns
+df.shape           - how many rows and columns
+
+# Select Rows , Columns , Cells
+df[["city", "aqi"]]           - pick particular columns. also used to change column order
+df.loc[]                      - row by label / index name
+df.iloc[]                     - row by position number
+df.loc[0, ["aqi"]]            - one row + particular columns
+df.at[0, "city"]              - one single cell
+
+# Filter
+df[(df["aqi"] > 100) & (df["temperature"] > 20)]   - filter with conditions
+df.query("aqi > 100 & temperature > 20")           - same filter but like a sentence
+#After Filterning - Pandas preserve the data's original Label but the index changes
+
+# Cleaning - Missing Values
+pd.isnull()        - missing = TRUE , not missing = FALSE
+df.isnull().sum()  - count missing values in each column
+df.dropna()        - delete every row having missing info
+df.dropna(axis=1)  - delete every column having missing info
+df.fillna(2)       - fill every missing value with 2 (or mean like age_mean)
+df.ffill()         - fill missing with previous value (up to down)
+df.bfill()         - fill missing with next value (down to up)
+df['age'].mean()   - average of that column. used to fill null ages
+
+# Cleaning - Duplicates and Types
+df.duplicated()                  - checks which rows are duplicate
+df.duplicated().sum()            - counts duplicates
+df.drop_duplicates()             - drops duplicates
+df.drop_duplicates(keep='first') - keep first occurrence
+df.drop_duplicates(keep='last')  - keep last occurrence
+df.drop_duplicates(keep=False)   - drop all duplicate rows
+df.astype({'age': 'int64'})      - change datatype. rule - no cell should be null
+
+# String Operations
+df['name'].str.lower()           - convert to lowercase
+df['name'].str.len()             - count characters
+df['name'].str.startswith('A')   - starts with A ?
+df['name'].str.endswith('A')     - ends with A ?
+df['name'].str.contains('A')     - contains A ?
+
+# Feature Engineering - make / change columns
+df["tax"] = df["income"].apply(lambda x: x * 0.1)   - create new column using a funtion
+df["gender"].map(gender_map)                        - replace values using a dictionary
+df.assign(total_expenses = df["income"] + df["tax"]) - create new column
+df.replace("Unknown", "Other")                      - replace specific old value with new
+df.rename(columns={"Income": "Salary"})             - rename particular column
+df.rename(index={0: "First"})                       - rename particular row
+df.sort_values(by="income", ascending=False)        - sort like excel filter. False = high to low
+
+# Save / Write Files
+df.to_csv("Pandas_DS/cleaned_data.csv", index=False)   - save as new csv. index=False means no extra 0,1,2 column
+df.to_json("Pandas_DS/cleaned_data.json", index=False) - save as new json
+#to overwrite original file just put same file name in to_csv
+
+# Group by and Aggregate
+df.groupby("country")["income"].mean()                 - group rows by country then average income
+df.groupby("gender")["income"].min()                   - group by gender then minimum income
+df.groupby("gender")["income"].agg(["mean", "min", "max"]) - many stats at once
+
+# Melt and Pivot  (wide <-> long)
+df.melt(id_vars=[...], value_vars=[...], var_name="Amount")
+    id_vars = columns to keep as it is
+    value_vars = columns to convert into rows
+    var_name = name of the new type column (Income / Tax)
+    value column is auto created if you dont set value_name. it holds the actual numbers
+    melting can increase rows. column count may stay same by coincidence
+df.pivot(index="Name", columns="Amount", values="value")
+    opposite of melt. long data back to wide. column name must match exactly (value not Value)
+
+# Visualization  (pandas calls matplotlib internally - install matplotlib first)
+df["income"].hist()              - histogram
+df["income"].plot(kind="bar")    - bar chart. kind can be scatter , line , etc.
+plt.show()                       - actually open the graph window
+
+# Merge two tables
+pd.merge(left, right, on="Product", how="left")
+    on = common column to join
+    Inner (default) - only matched rows
+    Left  - all left rows + matched right. Nan if right has no info
+    Right - all right rows + matched left. Nan if left has no info
+    Outer - all rows from both. Nan if either side missing

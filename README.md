@@ -7,11 +7,13 @@ This repo is my practice space for the building blocks that matter on a robot: w
 ## Current focus
 
 - **NumPy** — fast numerical work for signals, poses, and arrays
-- **Pandas** — loading, cleaning, filtering, and exploring data before it goes into a model
+- **Pandas** — load, clean, filter, group, reshape, merge, and plot data before it goes into a model
 
 ## What's here
 
 - `numpy/` — vectorization basics
-- `Pandas_DS/` — DataFrames, Series, CSV/JSON, filtering, and data cleaning notes
+- `Pandas_DS/` — notes and scripts from DataFrames through merging
+  - `1_intro.txt` — function overview of everything used in this folder
   - `data.csv` and `raw_data.csv` — small practice tables
+  - `cleaned_data.csv` / `cleaned_data.json` — saved after cleaning
   - `globalAirQuality.csv` — larger air-quality dataset for EDA practice
