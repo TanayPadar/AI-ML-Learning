@@ -1,0 +1,22 @@
+#Main usecase of Data Visualization is to understand patterns and realtions in data
+#which is hard in code to understand
+#That's why - you need to choose correct type + less noise 
+#Labels and Units needs to be clear and concise
+
+import matplotlib.pyplot as plt
+
+X = [1, 2, 3, 4, 5]
+Y = [1, 4, 9, 16, 25]
+X2 = [1,3,6,6,5]
+Y2 = [1,5,11,14,17]
+
+plt.plot(X, Y , label="First Line")
+plt.plot(X2, Y2, label="Second Line") #line chart by default
+plt.title("Square of Numbers")
+plt.xlabel("Numbers")
+plt.ylabel("Squares")
+plt.grid(True)
+plt.legend() #printed right top box for labels
+
+plt.show()
+
