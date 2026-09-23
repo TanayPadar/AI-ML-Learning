@@ -9,6 +9,6 @@ plt.scatter(age, blood_pressure, color="red", marker="o" , alpha=0.5, cmap="OrRd
 plt.title("Age vs Blood Pressure")
 plt.xlabel("Age")
 plt.ylabel("Blood Pressure")
-plt.annotate("Outlier", xy=(60, 120), xytext=(61, 121) #text, xy position of dot, xy pos of text)
+plt.annotate("Outlier", xy=(60, 120), xytext=(61, 121)) #text, xy position of dot, xy pos of text)
 plt.show()
 
