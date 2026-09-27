@@ -12,4 +12,6 @@
 
 #Vector Magnitude Formula
 #|V| = sqrt(v1^2 + v2^2 + v3^2)
+#Basically, its distance from origin
+
 
